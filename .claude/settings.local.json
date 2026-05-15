@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(iitc-push)",
+      "Bash(gh auth *)",
+      "Bash(git --version)",
+      "Bash(git branch *)",
+      "Bash(powershell -Command '$files = git ls-files --cached --others --exclude-standard; $hard=@\\('\\\\''node_modules'\\\\'','\\\\''dist'\\\\'','\\\\''build'\\\\'','\\\\''.venv'\\\\'','\\\\''__pycache__'\\\\'','\\\\''.next'\\\\'','\\\\''target'\\\\'','\\\\''bin'\\\\'','\\\\''obj'\\\\'','\\\\''vendor'\\\\'','\\\\''.cache'\\\\'','\\\\''modern-react-app.zip'\\\\''\\); $files = $files | Where-Object { $top=\\($_ -split '\\\\''/'\\\\''\\)[0]; $hard -notcontains $top -and $_ -notmatch '\\\\''\\\\.env\\(\\\\..*\\)?$'\\\\'' -and $_ -notmatch '\\\\''\\\\.log$'\\\\'' }; if\\(-not $files\\){Write-Error '\\\\''no files'\\\\'';exit 1}; Compress-Archive -Path $files -DestinationPath '\\\\''modern-react-app.zip'\\\\'' -Force; Write-Host \\($files | Measure-Object\\).Count '\\\\''files zipped'\\\\''')"
+    ]
+  }
+}
