@@ -64,9 +64,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: site-build
-          path: |
-            dist/
-            package.json
+          path: dist
           retention-days: 7 # This artifact will be available for 7 days
 
   deploy:
