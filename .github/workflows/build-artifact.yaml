@@ -70,16 +70,7 @@ jobs:
         # This step publishes the filename of the built JavaScript file
         # the step has a specific ENV variable GITHUB_OUTPUT that allows it to pass outputs to the job level
         id: publish
-        run: |
-          echo "Looking for JS files in dist..."
-          find dist -type f -name '*.js'
-          script_file=$(find dist -type f -name '*.js' | head -n 1)
-          if [ -z "$script_file" ]; then
-            echo "ERROR: No JS file found under dist" >&2
-            exit 1
-          fi
-          echo "Found JS file: $script_file"
-          echo "script-file=$script_file" >> "$GITHUB_OUTPUT"
+        run: echo "script-file=$(find dist/assets -name '*.js')" >> $GITHUB_OUTPUT
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
